@@ -1,21 +1,17 @@
 # SOC Mini SIEM – Correlation Engine (v1)
 
-Projeto voltado para simulação prática de atividades de um SOC (Security 
-Operations Center), com foco em correlação de eventos e geração de alertas 
-estruturados.
+Projeto voltado para simulação prática de atividades de um **SOC (Security Operations Center)**, com foco em **correlação de eventos** e geração de **alertas estruturados em JSON**.
 
 ---
 
 ## 📌 Objetivo
 
-Simular um fluxo operacional de um SOC (Nível 1 / Nível 2), 
-correlacionando múltiplas fontes de log para identificar comportamentos 
-suspeitos.
+Simular um fluxo operacional de um SOC (Nível 1 / Nível 2), correlacionando múltiplas fontes de log para identificar comportamentos suspeitos.
 
 O projeto realiza:
 
-- Análise de falhas de autenticação SSH (auth.log)
-- Análise de eventos de firewall (firewall.log)
+- Análise de falhas de autenticação SSH (`auth.log`)
+- Análise de eventos de firewall (`firewall.log`)
 - Correlação entre eventos
 - Classificação de severidade
 - Geração de alerta estruturado em JSON
@@ -27,12 +23,10 @@ O projeto realiza:
 
 Regras implementadas:
 
-- Se um IP possuir **5 ou mais falhas SSH** e estiver **bloqueado no 
-firewall** → Severidade **HIGH**
-- Se um IP possuir **5 ou mais falhas SSH**, mas não estiver bloqueado → 
-Severidade **MEDIUM**
+- Se um IP possuir **5 ou mais falhas SSH** e estiver **bloqueado no firewall** → Severidade **HIGH**
+- Se um IP possuir **5 ou mais falhas SSH**, mas não estiver bloqueado → Severidade **MEDIUM**
 
-Essa lógica simula um mecanismo básico de correlação de um SIEM.
+Essa lógica simula um mecanismo básico de correlação utilizado em soluções SIEM.
 
 ---
 
@@ -40,9 +34,9 @@ Essa lógica simula um mecanismo básico de correlação de um SIEM.
 
 Mapeamento implementado:
 
-- Technique ID: **T1110**
-- Technique Name: **Brute Force**
-- Tactic: **Credential Access**
+- **Technique ID:** T1110  
+- **Technique Name:** Brute Force  
+- **Tactic:** Credential Access  
 
 ---
 
@@ -74,4 +68,3 @@ soc-mini-siem-correlation-engine/
 
 ```bash
 python3 main.py
-
