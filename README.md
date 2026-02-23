@@ -41,6 +41,7 @@ Mapeamento implementado:
 ---
 
 ## 🏗 Estrutura do Projeto
+
 soc-mini-siem-correlation-engine/
 ├── logs/
 │ ├── auth.log
@@ -51,6 +52,22 @@ soc-mini-siem-correlation-engine/
 
 
 ---
+
+
+## 📤 Exemplo de Alerta Gerado
+
+```json
+{
+    "alert_type": "Correlated Suspicious Activity",
+    "source_ip": "192.168.0.10",
+    "ssh_failed_attempts": 6,
+    "severity": "High",
+    "mitre": {
+        "technique_id": "T1110",
+        "technique_name": "Brute Force",
+        "tactic": "Credential Access"
+    }
+}
 
 ## ⚙ Tecnologias Utilizadas
 
