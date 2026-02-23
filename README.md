@@ -42,13 +42,15 @@ Mapeamento implementado:
 
 ## 🏗 Estrutura do Projeto
 
+```
 soc-mini-siem-correlation-engine/
 ├── logs/
-│ ├── auth.log
-│ └── firewall.log
+│   ├── auth.log
+│   └── firewall.log
 ├── main.py
 ├── alert_generator.py
 └── alert_*.json
+```
 
 
 ---
@@ -68,6 +70,7 @@ soc-mini-siem-correlation-engine/
         "tactic": "Credential Access"
     }
 }
+```
 
 ## ⚙ Tecnologias Utilizadas
 
