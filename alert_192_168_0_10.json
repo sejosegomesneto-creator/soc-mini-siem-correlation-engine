@@ -1,0 +1,17 @@
+{
+    "alert_type": "Correlated Suspicious Activity",
+    "source_ip": "192.168.0.10",
+    "ssh_failed_attempts": 6,
+    "severity": "High",
+    "mitre": {
+        "technique_id": "T1110",
+        "technique_name": "Brute Force",
+        "tactic": "Credential Access"
+    },
+    "timestamp": "2026-02-23T01:11:22.618150",
+    "recommended_action": [
+        "Investigar origem do IP",
+        "Validar se houve bloqueio no firewall",
+        "Considerar bloqueio/banimento autom\u00e1tico (fail2ban/firewall)"
+    ]
+}
