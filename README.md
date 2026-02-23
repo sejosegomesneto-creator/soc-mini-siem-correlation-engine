@@ -1,6 +1,6 @@
 # SOC Mini SIEM – Correlation Engine (v1)
 
-Projeto voltado para simulação prática de atividades de um **SOC (Security Operations Center)**, com foco em **correlação de eventos** e geração de **alertas estruturados em JSON**.
+Projeto desenvolvido para simular a lógica central de um mecanismo de correlação utilizado em ambientes SOC (Security Operations Center), focado na detecção de atividades suspeitas através da análise e correlação de múltiplas fontes de log.
 
 ---
 
