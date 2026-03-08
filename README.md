@@ -1,8 +1,8 @@
 # SOC Mini SIEM – Correlation Engine (v2)
 
-Projeto desenvolvido para simular a lógica central de um mecanismo de correlação utilizado em ambientes SOC (Security Operations Center).
+Projeto desenvolvido para simular o funcionamento de um mecanismo de correlação utilizado em ambientes de Security Operations Center (SOC).
 
-A versão 2 do projeto introduz melhorias importantes no mecanismo de detecção, incluindo correlação baseada em janela de tempo, regras configuráveis e filtragem por whitelist para redução de falsos positivos.
+O objetivo é demonstrar como múltiplas fontes de log podem ser analisadas e correlacionadas para identificar comportamentos suspeitos e gerar alertas estruturados.
 
 # 🎯 Objetivo
 
@@ -122,7 +122,7 @@ Descrição:
 | severity_if_blocked     | Severidade quando firewall bloqueia |
 | severity_if_not_blocked | Severidade sem bloqueio             |
 
-🛡 Whitelist
+# 🛡 Whitelist
 
 IPs confiáveis podem ser ignorados na análise.
 
@@ -136,7 +136,7 @@ Exemplo:
 192.168.0.1
 10.0.0.5
 
-🚨 Exemplo de Alerta Gerado
+# 🚨 Exemplo de Alerta Gerado
 
 {
   "timestamp": "2026-03-08T17:32:00Z",
@@ -186,20 +186,46 @@ O projeto simula o trabalho de um analista SOC:
 4️⃣ Identificação de padrão suspeito
 5️⃣ Geração de alerta estruturado
 
+## 🎯 Cenário Simulado
+
+O projeto simula um cenário comum em ambientes SOC onde um atacante tenta realizar um ataque de força bruta via SSH.
+
+Fluxo simulado:
+
+1. O projeto simula um cenário comum em ambientes SOC onde um atacante realiza múltiplas tentativas de autenticação SSH caracterizando um ataque de força bruta.
+2. Os eventos são registrados no arquivo `auth.log`
+3. O firewall detecta comportamento suspeito e bloqueia o IP
+4. O mecanismo de correlação analisa os eventos
+5. Um alerta estruturado é gerado com severidade apropriada
+
 📚 Conceitos de Segurança Demonstrados
 
-• Log Analysis
-• Event Correlation
-• Threat Detection
-• Brute Force Detection
-• MITRE ATT&CK Mapping
-• SIEM Fundamentals
-• SOC Workflow
+- Log Analysis (Análise de Logs)
+- Event Correlation (Correlação de Eventos)
+- Threat Detection (Detecção de Ameaças)
+- SSH Brute Force Detection
+- MITRE ATT&CK Mapping (T1110 - Brute Force)
+- SIEM Fundamentals
+- SOC Analyst Workflow (Nível 1 / Nível 2)
 
-🧑‍💻 Autor
+## 🔍 Objetivo Educacional
 
-José Barbosa Gomes Neto
+Este projeto foi desenvolvido como laboratório prático para estudo de:
 
-Analista SOC Jr | Blue Team | SIEM | Correlação de Eventos
+- Análise de logs
+- Correlação de eventos de segurança
+- Detecção de ataques de brute force
+- Estrutura de um mecanismo de correlação semelhante a SIEM
+- Mapeamento de eventos para MITRE ATT&CK
 
-Projeto desenvolvido como laboratório prático de detecção e correlação de eventos de segurança em ambientes SOC.
+O objetivo é demonstrar conceitos fundamentais utilizados por analistas SOC na detecção de atividades suspeitas em ambientes reais.
+
+
+## 👨‍💻 Autor
+
+**José Barbosa Gomes Neto**
+
+Analista SOC Jr | Blue Team | SIEM | Correlação de Eventos  
+
+🔗 GitHub: https://github.com/sejosegomesneto-creator  
+🔗 LinkedIn: www.linkedin.com/in/jose-barbosa-ti
