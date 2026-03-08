@@ -1,6 +1,6 @@
 [
     {
-        "timestamp": "2026-03-08T17:21:19.649757Z",
+        "timestamp": "2026-03-08T17:32:00.481836Z",
         "alert_type": "Correlated Suspicious Activity",
         "rule_name": "ssh_bruteforce_correlation",
         "source_ip": "192.168.0.10",
