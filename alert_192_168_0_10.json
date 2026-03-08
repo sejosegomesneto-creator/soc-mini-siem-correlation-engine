@@ -8,7 +8,7 @@
         "technique_name": "Brute Force",
         "tactic": "Credential Access"
     },
-    "timestamp": "2026-02-23T01:11:22.618150",
+    "timestamp": "2026-02-23T02:48:20.234830",
     "recommended_action": [
         "Investigar origem do IP",
         "Validar se houve bloqueio no firewall",

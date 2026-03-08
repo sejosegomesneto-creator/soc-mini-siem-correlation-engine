@@ -1,0 +1,6 @@
+ssh_bruteforce:
+  threshold: 5
+  window_seconds: 60
+  require_firewall_block: false
+  severity_if_blocked: high
+  severity_if_not_blocked: medium

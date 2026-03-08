@@ -75,3 +75,25 @@ soc-mini-siem-correlation-engine/
 ```bash
 python3 main.py
 
+
+## Version 2 Enhancements
+
+- Time-window based correlation
+- Configurable threshold via YAML
+- Whitelist filtering to reduce false positives
+- Structured alert output in JSON
+- Improved SSH brute-force correlation logic
+
+## Detection Logic
+
+The engine detects repeated failed SSH login attempts from the same source IP within a configurable time window and correlates the result with firewall block events.
+
+## Configuration
+
+Rules are stored in:
+
+- `config/rules.yaml`
+
+Whitelist is stored in:
+
+- `config/whitelist.txt`

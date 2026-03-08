@@ -1,42 +1,38 @@
-import re
-from collections import defaultdict
-from alert_generator import generate_alert
+import yaml
 
-AUTH_LOG = "logs/auth.log"
-FIREWALL_LOG = "logs/firewall.log"
+from alert_generator import save_alerts
+from engine.correlation_engine import correlate_ssh_bruteforce, load_whitelist
+from parsers.auth_parser import parse_auth_log
+from parsers.firewall_parser import parse_firewall_log
 
-FAILED_PATTERN = re.compile(r"Failed password.*from (\d+\.\d+\.\d+\.\d+)")
 
-def parse_auth_log():
-    attempts = defaultdict(int)
-    with open(AUTH_LOG, "r") as f:
-        for line in f:
-            match = FAILED_PATTERN.search(line)
-            if match:
-                ip = match.group(1)
-                attempts[ip] += 1
-    return attempts
+def load_rules():
+    with open("config/rules.yaml", "r", encoding="utf-8") as file:
+        return yaml.safe_load(file)
 
-def parse_firewall_log():
-    blocked_ips = set()
-    with open(FIREWALL_LOG, "r") as f:
-        for line in f:
-            if line.startswith("BLOCK"):
-                ip = line.split()[1]
-                blocked_ips.add(ip)
-    return blocked_ips
 
-def correlate():
-    ssh_attempts = parse_auth_log()
-    blocked_ips = parse_firewall_log()
+def main():
+    rules = load_rules()
+    whitelist = load_whitelist("config/whitelist.txt")
 
-    for ip, count in ssh_attempts.items():
-        # correlação: muitas falhas + IP bloqueado
-        if count >= 5 and ip in blocked_ips:
-            generate_alert(ip, count, severity="High")
-        elif count >= 5:
-            generate_alert(ip, count, severity="Medium")
+    auth_events = parse_auth_log("logs/auth.log")
+    blocked_ips = parse_firewall_log("logs/firewall.log")
+
+    alerts = correlate_ssh_bruteforce(
+        events=auth_events,
+        blocked_ips=blocked_ips,
+        rule_config=rules["ssh_bruteforce"],
+        whitelist=whitelist,
+    )
+
+    if alerts:
+        saved = save_alerts(alerts)
+        print("[+] Alerts generated:")
+        for alert in saved:
+            print(alert)
+    else:
+        print("[-] No suspicious activity detected.")
+
 
 if __name__ == "__main__":
-    print("=== MINI SIEM - CORRELATION ENGINE ===")
-    correlate()
+    main()
