@@ -4,14 +4,6 @@ Projeto desenvolvido para simular a lógica central de um mecanismo de correlaç
 
 A versão 2 do projeto introduz melhorias importantes no mecanismo de detecção, incluindo correlação baseada em janela de tempo, regras configuráveis e filtragem por whitelist para redução de falsos positivos.
 
-# SOC Mini SIEM – Correlation Engine (v2)
-
-Projeto desenvolvido para simular a lógica central de um mecanismo de correlação utilizado em ambientes **SOC (Security Operations Center)**.
-
-O objetivo é demonstrar como múltiplas fontes de log podem ser analisadas e correlacionadas para identificar **atividades suspeitas**, como ataques de **SSH brute force**, utilizando conceitos semelhantes aos empregados em plataformas **SIEM (Security Information and Event Management)**.
-
----
-
 # 🎯 Objetivo
 
 Simular um fluxo operacional de um SOC (Nível 1 / Nível 2), correlacionando múltiplas fontes de log para identificar comportamentos suspeitos e gerar alertas estruturados.
